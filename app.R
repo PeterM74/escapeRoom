@@ -3,64 +3,17 @@ library(shinyjs)
 library(tidyverse)
 library(lubridate)
 
-Settings <- list()
-Settings$TotalTimer <- lubridate::hours(3) # + lubridate::minutes(30)
-Settings$TotalTimerSecs <- Settings$TotalTimer %/% lubridate::seconds(1)
-  
+options(shiny.autoload.r = TRUE)
+purrr::map(list.files(path = "./R/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+
+# Load options
+Settings <- fGetSettings()
+MessageConstants <- fLoadMessageConstants(Settings)
+HelpCommands <- fHelpCommand(Settings)
 
 
-# Simple logic for command => response, no logic required
-## E.g. typing hello as command will always return hello back
-MessageConstants <- c(  # Lowercase
-  "defuse" = "Mmmm, no.",
-  "hello" = "Hello. How may I help you?",
-  "hint" = "Did you want me to help you?",
-  "name" = "My name is 010101000110100001100101010010000110010101101100011100000110010101110010.",
-  "terminate" = "Well that's not very nice.",
-  "pause" = "Haha, no.",
-  "schematics" = "Printing disbursement vessel schematics now. Please collect from Dr Malum.",
-  "stop" = "Nah.",
-  "exit" = "No, thank you."
-)
-
-# What is returned when help <command> is requested
-## Update this when a new command is added
-HelpCommandSpecifics <- c(
-  "abort" = paste("Aborts the countdown for the vessel disbursement.", 
-                   "Requires a nine-character passcode."),
-  "deploy" = "Initiates countdown sequence. No options.",
-  "help" = "Well now you are just being silly.",
-  "hello" = "??? It's just hello",
-  "module" = paste0("Run module of terminal that controls various things in the world.\n",
-                    "First argument specifies module code - 3 character code.\n",
-                    "Second arg is verb - specifies what to do with module. Options:\n",
-                    "  - submit: submit information to module. Third arg must be answer\n",
-                    "  - hint: request simple hint. -30s from timer\n",
-                    "  - extrahint: request complex hint. -2m from timer\n",
-                    "  - print: print module specifications\n\n"),
-  "name" = "...It's my name...",
-  "schematics" = "Prints schematics for the disbursement vessel. Handy!",
-  "timer" = "Displays time left in HH:MM:SS format"
-)
-
-# When <help> command is entered
-## Update this when a new command is added that should be publicly listed
-HelpMessage <- paste0("\nDr Malum's personal assistant v2.3.1.\n\nList of public commands:\n\n",
-                      paste("clear", "Clear console\n",
-                            sep = paste0(rep(" ", 24-5), collapse = "")),
-                      paste("deploy", "Initiate countdown sequence to disbursement\n",
-                            sep = paste0(rep(" ", 24-6), collapse = "")),
-                      paste("help", "List public commands. Call specific command as argument for further info\n",
-                            sep = paste0(rep(" ", 24-4), collapse = "")),
-                      paste("module", "Interact with this terminal's modules\n",
-                            sep = paste0(rep(" ", 24-6), collapse = "")),
-                      paste("schematics", "Print the vessel disbursement vessel schematics\n",
-                            sep = paste0(rep(" ", 24-10), collapse = "")),
-                      paste("timer", "Display time left on vessel\n",
-                            sep = paste0(rep(" ", 24-5), collapse = "")),
-                      paste("<<Up/Down>>", "Keys to scroll through history\n",
-                            sep = paste0(rep(" ", 24-11), collapse = "")),
-                      "\n\nRun help <command> for further information. Additional private commands unlisted.\n")
 
 PrintModuleMessage <- function(ModCode) paste("Printing module", ModCode, "now. Collect from Dr Malum.")
 ModuleData <- list(
