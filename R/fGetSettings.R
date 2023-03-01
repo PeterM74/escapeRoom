@@ -10,9 +10,17 @@ fGetSettings <- function() {
   ## Adjust the escape room timer
   Settings$TotalTimer <- lubridate::hours(3) # + lubridate::minutes(30) + lubridate::seconds(30)
   
+  
   ## BBEG name referenced throughout
   Settings$BBEGName <- "Dr Malum"
   Settings$BBEGPronouns <- c("they", "them")
+  
+  
+  ## Custom messages and help commands - change these functions to add additional messages/help commands
+  Settings$MessageConstants <- fLoadMessageConstants(Settings)  # Simple command => message response that doesn't require logic
+  Settings$HelpCommands <- fHelpCommand(Settings)  # Message returned when help <<command>> is run
+  
+  
   
   
   
