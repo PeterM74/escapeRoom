@@ -10,6 +10,8 @@ fHelpCommand <- function(Settings) {
   ## The sep parameter of paste is to ensure the output aligns correctly, ensure the empty space is repeated by 24 - StringLength
   GenericHelpResponse <- paste0("\n", Settings$BBEGName, "'s personal assistant v2.3.1.\n\nList of public commands:\n\n",
                                 
+                                paste("abort", "Abort the countdown sequence\n",
+                                      sep = paste0(rep(" ", 24-5), collapse = "")),
                                 paste("clear", "Clear console\n",
                                       sep = paste0(rep(" ", 24-5), collapse = "")),
                                 paste("deploy", "Initiate countdown sequence to disbursement\n",

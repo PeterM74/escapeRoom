@@ -12,13 +12,19 @@ fGetSettings <- function() {
   
   
   ## BBEG name referenced throughout
-  Settings$BBEGName <- "Dr Malum"
+  ### Also requires you to updated TVscript.js with new title in onInit variable. This project uses:
+  ### https://patorjk.com/software/taag/#p=display&f=3D-ASCII&t=Dr%20Malum
+  Settings$BBEGName <- "Dr Malum"   
   Settings$BBEGPronouns <- c("they", "them")
   
   
   ## Custom messages and help commands - change these functions to add additional messages/help commands
   Settings$MessageConstants <- fLoadMessageConstants(Settings)  # Simple command => message response that doesn't require logic
   Settings$HelpCommands <- fHelpCommand(Settings)  # Message returned when help <<command>> is run
+  
+  
+  ## Abort passcode
+  Settings$AbortPasscode <- "ABCDE"  # Set to whatever the code to 'win' is
   
   
   
