@@ -12,10 +12,14 @@ fGetSettings <- function() {
   
   
   ## BBEG name referenced throughout
-  ### Also requires you to updated TVscript.js with new title in onInit variable. This project uses:
+  ### If changing the name, you must also update the TVscript.js with a new title in onInit variable. ASCII Source:
   ### https://patorjk.com/software/taag/#p=display&f=3D-ASCII&t=Dr%20Malum
   Settings$BBEGName <- "Dr Malum"   
   Settings$BBEGPronouns <- c("they", "them")
+  
+  
+  ## Modify active modules
+  Settings$Modules <- fModuleData(Settings)
   
   
   ## Custom messages and help commands - change these functions to add additional messages/help commands

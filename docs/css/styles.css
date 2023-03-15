@@ -1,0 +1,20 @@
+/* Custom css for documents */
+.title {
+  
+  text-align: center;
+  
+}
+
+.SkillsBox {
+  
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 150px;
+  border: 3px dashed #d4d4d4;
+  color: #a4a4a4;
+  padding: 8px;
+  text-align: right;
+  font-size: 0.8rem;
+  
+}

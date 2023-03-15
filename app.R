@@ -44,7 +44,7 @@ ui <- fillPage(
                               style = "color: #008F11; font-size: 3vw; text-shadow: 0 0 4px #00FF41;"),
                     tags$br(),
                     tags$span(paste("Vessel activated.",
-                                    "Impact: 10,000 people with sniffles."), 
+                                    "Impact: 10,000 people with sniffles."),  # TODO: update to be non-specific
                               style = "color: #008F11; font-size: 1.5vw; text-shadow: 0 0 4px #00FF41;"),
                     style=paste0("border-style = solid; border-width: 20px; border-color: #008F11;",
                                  "width:40vw; height: 30vh; position: absolute; top: 35vh; left: 30vw;",
@@ -85,8 +85,7 @@ server <- function(input, output, session) {
         print("Achieved")
         shinyjs::show("FailBox")
         shinyjs::hide("topLDBar")
-        #shinyjs::runjs("document.getElementById('FailBox').style.display = block;")
-        
+
       }
       
       invalidateLater(60000, session)  # Every minute, update timer
@@ -119,8 +118,7 @@ server <- function(input, output, session) {
       class(CommandObject) <- c(make.names(CommandObject$name), class(CommandObject))
       
       fParseCommand(CommandObject, session = session, Settings = Settings)
-      # testfxn(CommandObject, session = session)
-      
+
     }
     
   })
