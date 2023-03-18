@@ -50,7 +50,7 @@ ui <- fillPage(
            tags$div(class="scanlines"),
            tags$div(class="noise"),
            htmltools::tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/js/jquery.terminal.min.js"),
-           htmltools::tags$script(src = "https://raw.githubusercontent.com/loadingio/loading-bar/master/dist/loading-bar.js"),
+           shiny::includeScript("www/loading-bar.js"),
            shiny::includeScript("www/TVscript.js"))
   
 )

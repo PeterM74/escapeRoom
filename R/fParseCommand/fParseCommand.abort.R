@@ -21,6 +21,7 @@ fParseCommand.abort <- function(pCommandObject, session, Settings, ...) {
     observe({
       
       CountdownStatus(FALSE)
+      # TODO: add win animation
       
     }, env = parent.frame(n = 1), domain = session)
     
