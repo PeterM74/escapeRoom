@@ -1,0 +1,74 @@
+---
+title: "Poker hands"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Source: this problem is adapted from Project Euler, problem 54. https://projecteuler.net/problem=54
+# Guide: this example requires the longest code to complete so is a good challenge for a sub-group to tackle. Good teamwork and careful planning will speed up the process.
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Algorithm", "Teamwork"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.7) %>%
+  grid::grid.draw()
+```
+
+My friend, Dr Mors, recently competed in the World Series of Poker tournament but has been very quiet about his performance. He states he was dealt bad cards and the matches must have been fixed. I encoded the module passcode to be the number of times he had a stronger hand of five-card draw.
+
+Download the match history. The file contains one thousand hands Dr Mors played in the tournament - every round was a 1v1 between two players. Each line of the file contains ten cards (space separated): the first five cards are always Dr Mors hands and the last five are his opponents. You may assume all hands are valid (no invalid cards or repeated cards), each player's hand is in no specific order, and in each round there is a clear winner.
+
+Below is the standard ruleset for five-hand draw:
+A hand consists of five cards and are ranked, from lowest to highest, in the following way:
+
+* **High card**: Highest value card.
+* **One pair**: Two cards of the same value.
+* **Two pairs**: Two different pairs.
+* **Three of a kind**: Three cards of the same value.
+* **Straight**: All cards are consecutive values.
+* **Flush**: All cards of the same suit.
+* **Full house**: Three of a kind and a pair.
+* **Four of a kind**: Four cards of the same value.
+* **Straight flush**: All cards are consecutive values of same suit.
+* **Royal flush**: Ten, Jack, Queen, King, Ace, in same suit.
+
+The cards are valued in the order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace.
+
+If two players have the same ranked hands then the rank made up of the highest value wins; for example, a pair of eights beats a pair of fives. But if two ranks tie, for example, both players have a pair of queens, then the highest cards in each hand are compared; if the highest cards tie then the next highest cards are compared, and so on.

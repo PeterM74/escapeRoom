@@ -20,11 +20,9 @@ ui <- fillPage(
   shinyjs::useShinyjs(),
   
   # Header requirements
-  ## Terminal from: https://terminal.jcubic.pl/
-  ## TV effect from: https://codepen.io/jcubic/pen/BwBYOZ?editors=0100
-  ## Shiny timer: https://stackoverflow.com/questions/49250167/how-to-create-a-countdown-timer-in-shiny
   tags$head(
-    shiny::includeCSS("www/jquery.terminal.min.css"),
+    tags$link(rel = "stylesheet", type = "text/css", 
+              href = "https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/css/jquery.terminal.min.css"),
     shiny::includeCSS("www/TVclasses.css"),
     shiny::includeCSS("www/loading-bar.css"),
     tags$script(paste0("Shiny.addCustomMessageHandler('TimerProgress', function(TimerProg) {",
@@ -43,8 +41,7 @@ ui <- fillPage(
                     tags$span("MISSION ACCOMPLISHED", 
                               style = "color: #008F11; font-size: 3vw; text-shadow: 0 0 4px #00FF41;"),
                     tags$br(),
-                    tags$span(paste("Vessel activated.",
-                                    "Impact: 10,000 people with sniffles."), 
+                    tags$span(paste("Vessel activated."), 
                               style = "color: #008F11; font-size: 1.5vw; text-shadow: 0 0 4px #00FF41;"),
                     style=paste0("border-style = solid; border-width: 20px; border-color: #008F11;",
                                  "width:40vw; height: 30vh; position: absolute; top: 35vh; left: 30vw;",
@@ -52,9 +49,9 @@ ui <- fillPage(
            tags$div(class="flicker"),
            tags$div(class="scanlines"),
            tags$div(class="noise"),
-           shiny::includeScript("www/jquery.terminal.min.js"),
-           shiny::includeScript("www/TVscript.js"),
-           shiny::includeScript("www/loading-bar.js"))
+           htmltools::tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/js/jquery.terminal.min.js"),
+           shiny::includeScript("www/loading-bar.js"),
+           shiny::includeScript("www/TVscript.js"))
   
 )
 
@@ -65,7 +62,6 @@ server <- function(input, output, session) {
   CountdownStatus <- reactiveVal(FALSE)
   TimerStart <- reactiveVal(Sys.time()) ## Will update itself once timer started
   Penalty <- reactiveVal(0)  # Penalty in seconds - it didn't like periods stored as RV?
-  TimerIntegrityModule <- reactiveVal(FALSE)
 
   observe({
 
@@ -85,26 +81,12 @@ server <- function(input, output, session) {
         print("Achieved")
         shinyjs::show("FailBox")
         shinyjs::hide("topLDBar")
-        #shinyjs::runjs("document.getElementById('FailBox').style.display = block;")
-        
+
       }
       
-      invalidateLater(60000, session)  # Every minute, update timer
+      invalidateLater(1000, session)  # Every 10s, update timer
 
     }
-
-  })
-  
-  # Time integrity module
-  observe({
-
-    if (!TimerIntegrityModule() & isolate(CountdownStatus())) {
-
-      Penalty(isolate(Penalty()) + 60)  # TODO: revert back to minute
-
-    }
-
-    invalidateLater(600000, session)  # Every 10 minutes, increase penalty
 
   })
   
@@ -119,8 +101,7 @@ server <- function(input, output, session) {
       class(CommandObject) <- c(make.names(CommandObject$name), class(CommandObject))
       
       fParseCommand(CommandObject, session = session, Settings = Settings)
-      # testfxn(CommandObject, session = session)
-      
+
     }
     
   })

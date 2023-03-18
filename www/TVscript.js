@@ -50,27 +50,6 @@ var term = $('#terminal').terminal(function(command, term) {
       });
     
     
-    
-    
-    //window.ShinyResponse = null;
-
-    
-    
-    //if (command !== '') {
-    //    try {
-    //        var result = __EVAL(command);
-            //if (result && result instanceof $.fn.init) {
-            //    term.echo('<#jQuery>');
-            //} else if (result && typeof result === 'object') {
-            //    tree(result);
-            //} else if (result !== undefined) {
-            //    term.echo(new String(result));
-            //}
-    //    } catch(e) {
-            //term.error(new String(e));
-    //        term.error(new String("Uh oh, don't know"))
-    //    }
-    
 }, {
     name: 'js_demo',
     onResize: set_size,

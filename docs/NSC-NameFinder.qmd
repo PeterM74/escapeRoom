@@ -1,0 +1,57 @@
+---
+title: "Name finder"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Source: this problem is adapted from Project Euler, problem 22. https://projecteuler.net/problem=22
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Object manipulation", "R basics"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.1) %>%
+  grid::grid.draw()
+```
+
+I named one of the vessel's modules but now I can't remember it... I'm better with numbers than names! It's definitely one of the following 5,000 names...
+
+Download the list of names. Sort the names in alphabetical order and then calculate their numerical score based on the product of the name's position and the letter sum. The name to unlock definitely had a value of 96,943.
+
+For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938^th^ name in the list. So, COLIN would obtain a score of 938 * 53 = 49,714.

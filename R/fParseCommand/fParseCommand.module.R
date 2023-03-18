@@ -22,17 +22,6 @@ fParseCommand.module <- function(pCommandObject, session, Settings, ...) {
     
     fHandleModule(pCommandObject, session = session, Settings = Settings)
     
-    # if (ModuleCode %in% names(TBD)) {
-    # 
-    #   
-    #   
-    #   # Module code not registered in list
-    # } else {
-    #   
-    #   Message <- paste("Module code", ModuleCode, "is not recognised.")
-    #   
-    # }
-    # 
   }
   
 }
