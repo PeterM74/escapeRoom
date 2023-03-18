@@ -1,0 +1,69 @@
+---
+title: "Snake"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Requirements: this module can only be solved in R and requires an environment to run the code. My org has a Posit Connect server so I ran this as an API. Alternatively you could run an API off your laptop and expose it to the team if your firewall allows. Last option is for the solvers to demonstrate the solution to the host. Don't forget to update this document and the fModuleData() function when you decide how to implement so there is a way for them to receive they key.
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Algorithm writing", "R required"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.3) %>%
+  grid::grid.draw()
+```
+
+I've locked this module behind my favourite mobile game. You must beat the traditional game Snake with a point score of 50, 20 times in a row without failing.
+
+Game rules:
+* Board size: 10 columns, 20 rows
+* Board edge is solid (you cannot go past the edge)
+* You cannot run into yourself
+* If you are unfamiliar with the game, ask me or watch this demo: https://youtu.be/NLCzNwva_CE.
+
+You must write an R function that receives two inputs and outputs a direction key. The two inputs are:
+1. Fruit position - the position of the 'fruit' the snake must eat. Numeric vector of length two, where v~1~ is x-position (column) and v~2~ is y-position (rows) in the grid.
+2. Snake position - the position of the snake. A list of numeric vectors which each follow the same coordinate system as the fruit. The first element in the list is the snake's head and the last is the snake's tail.
+
+The output must be a scalar variable that equals either: "U"/"D"/"L"/"R", meaning Up/Down/Left/Right respectively.
+
+Download the necessary files and read the documentation.
+
+Submit final function to <span style="color: red;">[INSERT_DETAILS_HERE]</span>. Ensure you have tested your algorithm to ensure you haven't left any bugs in the program that may cause recursion or unending snake loops.

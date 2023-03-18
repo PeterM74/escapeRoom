@@ -1,0 +1,66 @@
+---
+title: "Hexagonal Field"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Source: this problem is adapted from Project Euler, problem 351. https://projecteuler.net/problem=351
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Problem solving"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.8) %>%
+  grid::grid.draw()
+```
+
+I've been having lots of geometric dreams - I go on road trips and see ordered forests planted for harvesting in structured lattices. 
+
+I'm standing in the middle of a hexagonal field of trees, positioned in a regular hexagonal lattice structure with side *n*. The following is an example of a hexagon field of order 5:
+
+![](inst/HexagonalField.png){fig-align="center"}
+
+Highlighted in green are the trees hidden from my viewpoint (red) by another tree. You can see that for a hexagonal field of order 5, 30 poitns are hidden from the centre. Let H(*n*) be the number of points hidden from the centre in a hexagonal field of order *n*. 
+
+I give you:
+H(5) = 30
+H(10) = 138
+H(100) = 12036
+
+I wonder how many trees are hidden from me with H(10 000)...

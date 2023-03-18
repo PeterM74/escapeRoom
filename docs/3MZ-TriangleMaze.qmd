@@ -1,0 +1,65 @@
+---
+title: "Triangle Maze"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Source: this problem is adapted from Project Euler, problem 67. https://projecteuler.net/problem=67
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Problem solving", "Algorithms"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.9) %>%
+  grid::grid.draw()
+```
+
+I have built a maze that will lose you forever! Only by finding the correct path will you unlock the module. To make it easier, I have provided you a map of the maze.
+
+Here is a simplified version with the answer:
+
+<p style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">3</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">7</span>&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;<span style="color: red;">4</span>&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;<br>
+8&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;<span style="color: red;">9</span>&nbsp;&nbsp;&nbsp;3
+</p>
+
+Each path branches in two at each step. At each step, you must choose an adjacent number in the next step.The correct path maximises the total sum of the path taken. In the above, the outlined path maximises the total: 3 + 7 + 4 + 9 = 23. The path on the left most side returns 20 so is not the correct answer (3 + 7 + 2 +8).
+
+Download the file containing the maze. Submit the maximum total.
