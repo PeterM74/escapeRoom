@@ -1,7 +1,6 @@
 library(shiny)
 library(shinyjs)
 library(tidyverse)
-library(lubridate)
 
 purrr::map(list.files(path = "./R/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
            source) %>%

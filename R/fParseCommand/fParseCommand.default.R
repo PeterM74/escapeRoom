@@ -10,7 +10,7 @@ fParseCommand.default <- function(pCommandObject, session, Settings, ...) {
   
   if (pCommandObject$name %in% names(Settings$MessageConstants)) {
     
-    Message <- MessageConstants[[pCommandObject$name]]
+    Message <- Settings$MessageConstants[[pCommandObject$name]]
     
   } else {
     
