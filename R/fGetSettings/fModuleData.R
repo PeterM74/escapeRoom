@@ -73,7 +73,7 @@ fModuleData <- function(Settings) {
                                    "a consistent algorithmic approach. How can you keep the snake’s", 
                                    "body away from where you need to go?"),
                  Submit = "THEREISNOANSWERTOBESUBMITTED",
-                 Success = "THEREISNOANSWERTOBESUBMITTED",
+                 Success = "Correct! Module unlocked. Key: R.",
                  Failure = "Answer must be submitted to the API.")
     
     )

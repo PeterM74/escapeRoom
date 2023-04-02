@@ -26,7 +26,7 @@ fGetSettings <- function() {
   
   
   
-  ## Modify penalty on hint or extrahint request
+  ## Modify penalty on hint or extrahint request (seconds)
   Settings$HintPenalty <- list(
     
     Hint = 30,
