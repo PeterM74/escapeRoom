@@ -18,3 +18,12 @@
   font-size: 0.8rem;
   
 }
+
+.ModuleCodeBox {
+  
+  position: absolute;
+  left: 0;
+  top: 30px;
+  text-align: center;
+
+}
