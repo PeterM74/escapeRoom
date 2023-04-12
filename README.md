@@ -3,7 +3,7 @@
 
 **A customisable escape room built with an R Shiny backend**
 
->Welcome to the secret laboratory of the evil scientist Dr Malum! They have left an odour disbursement vessel somewhere in [city] that will stink up the streets for weeks. You, our elite investigative taskforce, are our only hope to foil their plan. You must navigate their laboratory filled with puzzles and challenges that will test your skills and knowledge. You must solve each puzzle to unlock the necessary clues to disarm the vessel. 
+>The clock's ticking and only you can help! Dr Malum has left an odour disbursement vessel somewhere in [city] that will stink up the streets for weeks. You, our elite investigative taskforce, are our only hope to foil their plan. You must navigate their laboratory filled with puzzles and challenges that will test your skills and knowledge. You must solve each puzzle to unlock the necessary clues to disarm the vessel. 
 
 **No good? How about:**
 
