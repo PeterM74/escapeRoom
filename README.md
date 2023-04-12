@@ -3,7 +3,7 @@
 
 **A customisable escape room built with an R Shiny backend**
 
->Welcome to the secret laboratory of the evil scientist Dr Malum! They have left an odour disbursement vessel somewhere in [city] that will stink up the streets for weeks. You, our elite investigative taskforce, are our only hope to foil their plan. You must navigate their laboratory filled with puzzles and challenges that will test your skills and knowledge to the breaking point. You must solve each puzzle to unlock the necessary clues to disarm the vessel. 
+>Welcome to the secret laboratory of the evil scientist Dr Malum! They have left an odour disbursement vessel somewhere in [city] that will stink up the streets for weeks. You, our elite investigative taskforce, are our only hope to foil their plan. You must navigate their laboratory filled with puzzles and challenges that will test your skills and knowledge. You must solve each puzzle to unlock the necessary clues to disarm the vessel. 
 
 **No good? How about:**
 
@@ -31,7 +31,7 @@ You are now all set! To learn more about how to set up the escape room and how i
 ## Contributing and getting help
 If you encounter a bug or crash, please file an [issue](https://github.com/PeterM74/escapeRoom/issues) with a reproducible example if possible. You may also submit requests to improve the experience through the `enhancements` tag.
 
-I gratefully welcome any contributors to the project. Please create an issue and a pull request if you would like to submit any improvements.
+I gratefully welcome any contributors to the project. Let me know if you would like to contribute!
 
 ## Feedback
 I released this project so that others may also enjoy running the activity. I would love to hear your feedback (positive or negative) to know that other teams have tried it out and hopefully found it enjoyable. Criticism is also gratefully accepted. To leave feedback, complete this [Google Form](https://docs.google.com/forms/d/1RJmuKExzNSEbYORtJFS6aJUPR7u0GAeGU8AnAqVeHgk/).

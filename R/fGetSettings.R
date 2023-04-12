@@ -1,6 +1,5 @@
 #' Load settings referenced by the Shiny app
 #' This function returns a list of settings that can be adjusted for your escape room.
-#' Parameters that start with 
 #' @return Named list of settings
 fGetSettings <- function() {
   
