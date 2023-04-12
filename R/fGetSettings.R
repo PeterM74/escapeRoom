@@ -1,6 +1,5 @@
 #' Load settings referenced by the Shiny app
 #' This function returns a list of settings that can be adjusted for your escape room.
-#' Parameters that start with 
 #' @return Named list of settings
 fGetSettings <- function() {
   
@@ -26,7 +25,7 @@ fGetSettings <- function() {
   
   
   
-  ## Modify penalty on hint or extrahint request
+  ## Modify penalty on hint or extrahint request (seconds)
   Settings$HintPenalty <- list(
     
     Hint = 30,

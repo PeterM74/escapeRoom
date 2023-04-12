@@ -1,7 +1,6 @@
 library(shiny)
 library(shinyjs)
 library(tidyverse)
-library(lubridate)
 
 purrr::map(list.files(path = "./R/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
            source) %>%
@@ -55,6 +54,8 @@ ui <- fillPage(
   
 )
 
+
+
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
@@ -107,6 +108,8 @@ server <- function(input, output, session) {
   })
     
 }
+
+
 
 # Run the application 
 shinyApp(ui = ui, server = server, options = list(launch.browser = FALSE))

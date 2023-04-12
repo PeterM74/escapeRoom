@@ -36,3 +36,6 @@
 
 # R Environment Variables
 .Renviron
+
+# Knitted docs
+docs/*.html

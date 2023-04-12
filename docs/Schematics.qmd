@@ -1,0 +1,28 @@
+---
+title: "Vessel schematics"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# This is a rudimentary example of a schematics document which gives the participants more information on the interaction between the terminal and the device.
+```
+<div id="TerminalImage" style="margin: auto; padding-top: 8%;">
+<img src="wiki/Laptopicon.png" alt="Image of laptop" width=350 style="margin-left: auto;  margin-right: auto;  display: block;"></div>
+
+<div id="DownArrow" style="margin: auto; padding-top: 2%;">
+<img src="wiki/DownArrow.png" alt="Image of laptop" width=100 style="margin-left: auto;  margin-right: auto;  display: block;"></div>
+
+<div id="TextExplainer" style="position: absolute; top: calc(10% + 350px); left: 55%; width: 200px;">
+<span>6 vessel modules need to be unlocked to reveal the abort code</span>
+</div>
+
+<div id="Vessel" style="margin: auto; padding-top: 2%;">
+<img src="wiki/Device.png" alt="Disbursement vessel" width=300 style="margin-left: auto;  margin-right: auto;  display: block;"></div>
