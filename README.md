@@ -1,4 +1,5 @@
-# escapeRoom <img src="docs/wiki/escapeRoomHexsticker.gif" align="right" height="150" width="150"/>
+<img src="docs/wiki/escapeRoomHexsticker.gif" align="right" height="150" width="150"/> </img>
+# escapeRoom  
 ![](https://img.shields.io/badge/version-1.0.0-green)
 
 **A customisable escape room built with an R Shiny backend**
