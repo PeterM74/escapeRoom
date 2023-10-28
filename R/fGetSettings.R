@@ -42,7 +42,7 @@ fGetSettings <- function() {
   
   
   ## Abort passcode
-  Settings$AbortPasscode <- "WINNER"  # Set to whatever the code to 'win' is
+  Settings$AbortPasscode <- "WINNER!"  # Set to whatever the code to 'win' is
   
   
   
