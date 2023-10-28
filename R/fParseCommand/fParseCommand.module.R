@@ -10,7 +10,7 @@ fParseCommand.module <- function(pCommandObject, session, Settings, ...) {
   
     
   # Check that module has not been entered without a code
-  if (pCommandObject$rest == "") {
+  if (stringr::str_trim(pCommandObject$rest) == "") {
     
     Message <- "Please specify a module code that you would like to interact with."
     session$sendCustomMessage("EchoResponse", Message)

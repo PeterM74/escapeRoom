@@ -9,7 +9,7 @@
 #' @param Settings Settings object
 #' @param ... Unused parameters
 #' @return No object returned. Sends message response to the terminal.
-fHandleModule.default <- function(pCommandObject, session, Settings, ...) {
+fHandleModule.CustomModule <- function(pCommandObject, session, Settings, ...) {
   
   shiny::observe({
     

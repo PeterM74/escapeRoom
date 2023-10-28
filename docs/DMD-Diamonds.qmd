@@ -1,0 +1,65 @@
+---
+title: "Diamonds"
+format: 
+  html:
+    toc: false
+    css: css/styles.css
+    echo: false
+    mainfont: Helvetica, sans-serif
+    embed-resources: true
+---
+```{r Notes}
+#| include: false
+# Print: render and print this document to save to PDF or directly print.
+# Source: this is a custom problem built using a synthetic version of the diamonds dataset
+```
+
+```{r LoadSettings}
+#| include: false
+
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+# Load libraries
+library(tidyverse)
+library(grid)
+
+# Load functions for docs
+purrr::map(list.files(path = "./utils/", pattern = ".R$", recursive = TRUE, full.names = TRUE),
+           source) %>%
+  invisible()
+```
+
+``` {r ModuleCodeBox}
+#| output: asis
+#| eval: true
+
+# Output a box containing the module reference code
+fModuleCode("DMD")
+```
+
+``` {r SkillsRequiredBox}
+#| output: asis
+#| eval: true
+
+# Output a box detailing the skills required for this challenge
+## If you wish this to be a mystery, set eval to false
+fSkillsRequired(c("Data modelling"))
+```
+
+``` {r DifficultyRating}
+#| eval: true
+#| fig-height: 0.7
+#| fig-width: 4
+#| fig-align: center
+
+# Output a rating estimate to help the participants triage the activities
+fDifficultyEstimate(0.6) %>%
+  grid::grid.draw()
+```
+
+I need diamonds for a laser disruption ray I'm currently working on as my next masterpiece of unrest. I needed exactly 19,990 diamonds but I got 19,991 diamonds insterad. That's what I get for ordering them off the sketchy website DiamondsForEvilPurposes.org...
+
+When I asked them about it, they said they delivered 19,990 regular diamonds and must have accidentally included one fake diamond, but are unsure which one it is. The fake diamond is visually indistinguishable from the real ones, but if I try to turn my laser on with it included, it may initiate a chain reaction that would cause ... let's just say a lot of problems for anyone in a 10km radius.
+
+They gave me the data of the diamonds they delivered in case it might help. Maybe one of them is not like the others. Identify which one is false by inputting the row number of the fake diamond. Download the dataset and get testing.
