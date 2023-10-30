@@ -63,7 +63,7 @@ fModuleData <- function(Settings) {
                                    "where to start, maybe try figuring out the ends first.", 
                                    "Visualisation is a good start!"),
                  Submit = "73162890",
-                 Success = "Correct! Module unlocked. Key: EN.",
+                 Success = "Correct! Module unlocked. Key: E.",
                  Failure = "Incorrect, module remains locked."),
     'PKR' = list(Print = .PrintModuleMessage("PKR", Settings),
                  Hint = paste("Functional programming principles are important to this problem.", 
